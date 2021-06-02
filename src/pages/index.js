@@ -10,40 +10,30 @@ export default function IndexPage({ data }) {
     <Layout>
       <Seo title="Home" />
       <div
-        className="padding"
-        style={{
-          marginTop: `var(--space-lg)`,
-          marginBottom: `var(--space-lg)`,
-        }}
+        style={
+          {
+            // marginTop: `var(--space-lg)`,
+            // marginBottom: `var(--space-lg)`,
+          }
+        }
       >
         {data.allMdx.edges.map(edge => (
           <div key={edge.node.id}>
             <Link to={`/dish/${edge.node.slug}`}>
-              <div
-                style={
-                  {
-                    // display: `grid`,
-                    // gridTemplateColumns: `2fr 5fr`,
-                    // gridAutoRows: `33vh`,
-                    // gap: `var(--space-lg)`,
-                  }
-                }
-              >
-                {/* <GatsbyImage
+              {/* <GatsbyImage
                   image={
                     edge.node.frontmatter.mainImage.childImageSharp
                       .gatsbyImageData
                   }
                 /> */}
-                <div>
-                  <h2
-                    className="text--xxxl"
-                    style={{ marginBottom: 0, marginTop: 0 }}
-                  >
-                    {edge.node.frontmatter.title}
-                  </h2>
-                  <small>{edge.node.frontmatter.description}</small>
-                </div>
+              <div>
+                <h2
+                  className="text--xxxl"
+                  style={{ marginBottom: 0, marginTop: 0 }}
+                >
+                  {edge.node.frontmatter.title}
+                </h2>
+                <small>{edge.node.frontmatter.description}</small>
               </div>
             </Link>
             <hr className="hr" />

@@ -3,11 +3,10 @@ import { Link } from "gatsby"
 
 import useSiteMetadata from "../hooks/use-site-metadata"
 
-export default function Header() {
+export default function Footer() {
   const { title, description } = useSiteMetadata()
-
   return (
-    <header
+    <footer
       style={{
         padding: `var(--space-md)`,
       }}
@@ -18,6 +17,6 @@ export default function Header() {
         </h1>
       </Link>
       <small>{description}</small>
-    </header>
+    </footer>
   )
 }

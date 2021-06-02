@@ -1,31 +1,29 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
 import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
+import Nav from "./nav"
+import Footer from "./footer"
 import "./layout.css"
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <div className="aside-content-grid">
+        <aside className="aside">
+          <Nav />
+        </aside>
+        <main
+          className="padding"
+          style={{
+            marginTop: `var(--space-lg)`,
+            marginBottom: `var(--space-lg)`,
+          }}
+        >
+          {children}
+        </main>
+      </div>
+      <Footer />
     </>
   )
 }

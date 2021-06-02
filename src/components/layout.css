@@ -32,3 +32,19 @@ body,
   margin-block-start: var(--space-lg);
   margin-block-end: var(--space-lg);
 }
+
+nav ul li:last-child {
+  margin-bottom: 0;
+}
+
+.summary {
+  background-color: var(--bg-2);
+}
+
+.details {
+  box-shadow: none;
+}
+
+.aside {
+  justify-content: space-around;
+}

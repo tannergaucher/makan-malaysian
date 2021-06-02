@@ -3,41 +3,58 @@ import { graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Link } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 
 import "semantic-styles"
-import Header from "./header"
 
-const shortcodes = { Link } // Provide common components here
+import Layout from "./layout"
+
+const shortcodes = { Link, StaticImage } // Provide common components here
 
 export default function DishLayout({ data: { mdx } }) {
   return (
-    <div>
-      <Header />
+    <Layout>
       <article>
-        <div className="container" style={{ marginTop: `var(--space-md)` }}>
-          {mdx.frontmatter.mainImage && (
+        <div>
+          {/* {mdx.frontmatter.mainImage && (
             <GatsbyImage
               image={mdx.frontmatter.mainImage.childImageSharp.gatsbyImageData}
             />
-          )}
+          )} */}
           <h2
             className="text--xxxl"
-            style={{ marginBottom: `0`, marginTop: `var(--space-lg)` }}
+            style={{ marginBottom: `0`, marginTop: 0 }}
           >
             {mdx.frontmatter.title}
           </h2>
           <small>{mdx.frontmatter.description}</small>
-        </div>
-        <div className="container" style={{ marginTop: `var(--space-lg)` }}>
           <hr className="hr" />
+          {/* {mdx.frontmatter.mainImage && (
+            <div style={{ marginTop: `var(--space-lg)` }}>
+              <GatsbyImage
+                image={
+                  mdx.frontmatter.mainImage.childImageSharp.gatsbyImageData
+                }
+                alt={mdx.frontmatter.mainImageCaption}
+              />
+              <p className="text--sm">{mdx.frontmatter.mainImageCaption}</p>
+            </div>
+          )} */}
+        </div>
+        <div
+          className="padding"
+          style={{
+            marginTop: `var(--space-lg)`,
+            marginBottom: `var(--space-lg)`,
+          }}
+        >
           <MDXProvider components={shortcodes}>
             <MDXRenderer frontmatter={mdx.frontmatter}>{mdx.body}</MDXRenderer>
           </MDXProvider>
           <hr className="hr" />
         </div>
       </article>
-    </div>
+    </Layout>
   )
 }
 
@@ -49,6 +66,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         description
+        mainImageCaption
         mainImage {
           childImageSharp {
             gatsbyImageData(layout: FULL_WIDTH)
