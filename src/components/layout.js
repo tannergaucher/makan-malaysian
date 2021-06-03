@@ -9,21 +9,16 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      <div className="aside-content-grid">
-        <aside className="aside">
-          <Nav />
-        </aside>
-        <main
-          className="padding"
-          style={{
-            marginTop: `var(--space-lg)`,
-            marginBottom: `var(--space-lg)`,
-          }}
-        >
-          {children}
-        </main>
-      </div>
-      <Footer />
+      <main
+        className="main padding"
+        style={{
+          marginTop: `var(--space-lg)`,
+          marginBottom: `var(--space-lg)`,
+        }}
+      >
+        {children}
+      </main>
+      {/* <Footer /> */}
     </>
   )
 }

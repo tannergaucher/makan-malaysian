@@ -17,8 +17,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `dishes`,
-        path: `${__dirname}/src/content/dishes`,
+        name: `recipes`,
+        path: `${__dirname}/src/content/recipes`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `guide`,
+        path: `${__dirname}/src/content/guide`,
       },
     },
     `gatsby-transformer-sharp`,

@@ -22,39 +22,21 @@ export default function Nav() {
         className={`btn ${location.pathname === "/" && `btn-primary`}`}
         to="/"
       >
-        Dishes
-      </Link>
-
-      <Link
-        className={`btn ${
-          location.pathname === "/ingredients" && `btn-primary`
-        }`}
-        to="/ingredients"
-      >
-        Ingredients
-      </Link>
-
-      <Link
-        className={`btn ${
-          location.pathname === "/components" && `btn-primary`
-        }`}
-        to="/components"
-      >
-        Components
+        Recipes
       </Link>
 
       <Link
         className={`btn ${location.pathname === "/writing" && `btn-primary`}`}
-        to="/writing"
+        to="/guide"
       >
-        Writing
+        Guide
       </Link>
 
       <Link
-        className={`btn ${location.pathname === "/search" && `btn-primary`}`}
-        to="/search"
+        className={`btn ${location.pathname === "/about" && `btn-primary`}`}
+        to="/about"
       >
-        Search
+        About
       </Link>
     </nav>
   )

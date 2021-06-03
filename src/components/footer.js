@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer
       style={{
-        padding: `var(--space-md)`,
+        padding: `var(--space-sm) var(--space-md)`,
       }}
     >
       <Link to="/">

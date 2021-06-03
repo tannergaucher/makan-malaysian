@@ -9,7 +9,11 @@ export default function Header() {
   return (
     <header
       style={{
-        padding: `var(--space-md)`,
+        padding: `0 var(--space-md)`,
+        position: `sticky`,
+        top: `0`,
+        backgroundColor: `var(--bg-1)`,
+        zIndex: `2`,
       }}
     >
       <Link to="/">

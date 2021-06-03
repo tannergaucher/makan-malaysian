@@ -1,40 +1,23 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-// import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import ArticleCard from "../components/article-card"
 
 export default function IndexPage({ data }) {
   return (
     <Layout>
       <Seo title="Home" />
-      <div
-        style={
-          {
-            // marginTop: `var(--space-lg)`,
-            // marginBottom: `var(--space-lg)`,
-          }
-        }
-      >
+      <div className="">
         {data.allMdx.edges.map(edge => (
           <div key={edge.node.id}>
-            <Link to={`/dish/${edge.node.slug}`}>
-              {/* <GatsbyImage
-                  image={
-                    edge.node.frontmatter.mainImage.childImageSharp
-                      .gatsbyImageData
-                  }
-                /> */}
-              <div>
-                <h2
-                  className="text--xxxl"
-                  style={{ marginBottom: 0, marginTop: 0 }}
-                >
-                  {edge.node.frontmatter.title}
-                </h2>
-                <small>{edge.node.frontmatter.description}</small>
-              </div>
+            <Link to={`${edge.node.fields.slug}`}>
+              <ArticleCard
+                small={edge.node.fields.contentType}
+                title={edge.node.frontmatter.title}
+                text={edge.node.frontmatter.description}
+              />
             </Link>
             <hr className="hr" />
           </div>
@@ -50,7 +33,10 @@ export const query = graphql`
       edges {
         node {
           id
-          slug
+          fields {
+            slug
+            contentType
+          }
           frontmatter {
             title
             description
